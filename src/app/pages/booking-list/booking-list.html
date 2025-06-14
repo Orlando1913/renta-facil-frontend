@@ -1,0 +1,20 @@
+<h2 style="text-align: center; margin-bottom: 1rem;">Reservas Realizadas</h2>
+
+<div class="booking-container" *ngIf="bookings.length > 0; else noBookings">
+  <mat-card *ngFor="let booking of bookings" class="booking-card">
+    <mat-card-header>
+      <mat-card-title>{{ booking.customerName }}</mat-card-title>
+      <mat-card-subtitle>Reserva ID: {{ booking.id }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Vehículo:</strong> {{ booking.vehicleId }}</p>
+      <p><strong>Inicio:</strong> {{ booking.startDate | date:'shortDate' }}</p>
+      <p><strong>Fin:</strong> {{ booking.endDate | date:'shortDate' }}</p>
+      <p><strong>Total:</strong> ${{ booking.totalPrice }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<ng-template #noBookings>
+  <p style="text-align: center; color: gray;">No hay reservas registradas.</p>
+</ng-template>

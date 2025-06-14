@@ -1,0 +1,11 @@
+<div class="container">
+  <mat-card *ngFor="let vehicle of vehicles">
+    <mat-card-title>{{ vehicle.brand }} {{ vehicle.model }}</mat-card-title>
+    <mat-card-content>
+      <p>Placa: {{ vehicle.licensePlate }}</p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="goToBooking(vehicle.id)">
+      Reservar
+    </button>
+  </mat-card>
+</div>
